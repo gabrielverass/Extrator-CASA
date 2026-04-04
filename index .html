@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrator CASA v7 - Definitivo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.0.4/dist/tesseract.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Extrator CASA v7 - Definitivo</h1>
+        <p style="color: #666; margin: 5px 0;">OCR com captura robusta de motilidade e cinemática (até 14 arquivos)</p>
+    </header>
+
+    <div class="upload-section" id="dropZone">
+        <p>Arraste os arquivos PDF aqui ou clique no botão abaixo (máximo 14 arquivos)</p>
+        <button class="btn btn-primary" id="selectBtn" onclick="document.getElementById('fileInput').click()">Selecionar PDFs</button>
+        <input type="file" id="fileInput" multiple accept="application/pdf">
+        <div id="status" class="status" style="display:none;"></div>
+        <div id="progressContainer" style="display:none;">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill">0%</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="btn btn-success" id="copyBtn" disabled>Copiar para Excel</button>
+        <button class="btn btn-info" id="debugBtn" disabled>Mostrar OCR</button>
+        <button class="btn btn-warning" id="forceOcrBtn" disabled>Reprocessar</button>
+        <button class="btn btn-danger" id="clearBtn" disabled>Limpar tudo</button>
+        <div class="file-counter">
+            <span id="fileCount">0 arquivos</span>
+        </div>
+        <button class="btn btn-info" id="editBtn" disabled>Editar</button>
+    </div>
+
+    <div class="main-content">
+        <div class="table-container">
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th><th>Donor</th><th>Arquivo</th><th>TM</th><th>PM</th><th>FM</th><th>SM</th><th>LM</th><th>CM</th><th>IM</th><th>VCL</th><th>VSL</th><th>VAP</th><th>DCL</th><th>DSL</th><th>DAP</th><th>ALH</th><th>BCF</th><th>HAC</th><th>LIN</th><th>STR</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="preview-panel">
+            <div class="preview-title">Conferência Visual</div>
+            <div id="previewContent">
+                <p style="color: #999; font-size: 12px;">Clique em uma linha para visualizar</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="debugArea"></div>
+</div>
+
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeEditModal()">&times;</span>
+        <h2>Editar Dados</h2>
+        <div id="editFormContainer"></div>
+        <div style="margin-top: 20px;">
+            <button class="btn btn-success" onclick="saveEditedData()">Salvar</button>
+            <button class="btn btn-danger" onclick="closeEditModal()">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
