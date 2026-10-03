@@ -18,7 +18,7 @@ A digitação manual de relatórios físicos, laudos analíticos e formulários 
 O **Extrator-CASA** foi projetado para automatizar essa esteira de entrada de dados: a ferramenta processa imagens e documentos digitalizados, identifica os blocos textuais críticos por Reconhecimento Óptico de Caracteres (OCR) e organiza os resultados em campos estruturados prontos para consulta ou exportação.
 
 ### 🌐 Demonstração Online
-- **Aplicação no ar:** [Acessar Extrator-CASA](https://extrator-casa.vercel.app) *(substitua pela URL exata da Vercel)*
+- **Aplicação no ar:** [Acessar Extrator-CASA](https://projeto-casa-fawn.vercel.app/)
 - **Repositório:** [https://github.com/gabrielverass/Extrator-CASA](https://github.com/gabrielverass/Extrator-CASA)
 
 ---
